@@ -1,0 +1,25 @@
+- npm init
+    (package.json)
+- npm install express mongose
+    (package-lock.json with both dependencies)
+
+
+
+
+
+
+
+
+QUESTIONS
+
+* Models/User.js -> UserSchema -> email
+    how to validate email?
+
+* Models/User.js -> UserSchema -> thoughts
+    What to put inside the enum?
+    (Array of _id values referencing the Thought model)
+
+* Models/Thoughts.js -> thoughtSchema -> reactions
+    What to put inside here?
+
+* Models/Reaction.js -> Schema Settings
