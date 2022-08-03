@@ -65,7 +65,7 @@ updateUser({ params, body }, res) {
 
   // delete user
 deleteUser({ params }, res) {
-    Pizza.findOneAndDelete({ _id: params.id })
+    User.findOneAndDelete({ _id: params.id })
       .then(dbUserData => {
         if (!dbUserData) {
           res.status(404).json({ message: 'No user found with this id!' });
