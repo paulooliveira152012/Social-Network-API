@@ -2,7 +2,7 @@
 // THEN I am able to successfully create, update, and delete users and thoughts in my database
 
 //require models
-const { User } = require('../Models')
+const { User } = require('../models')
 // const { User } = require('../Models')
 
 const userController = {
@@ -77,3 +77,5 @@ deleteUser({ params }, res) {
       .catch(err => res.status(400).json(err));
   }
 }
+
+module.exports = userController;

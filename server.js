@@ -1,7 +1,7 @@
 //import mongoose and express
 const mongoose = require('mongoose');
 const express = require('express');
-              // const routes = require('./routes');
+const routes = require('./routes');
 
 //setting up express as a const
 const app = express();
@@ -13,8 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(express.static('public'));
 
 //requireing routes
-              // app.use(routes);
-              app.use(require('./routes'));
+app.use(routes);
+              // app.use(require('./routes'));
 
 //setting up mongoose
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/social-network', {
