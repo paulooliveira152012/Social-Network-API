@@ -3,6 +3,7 @@
 
 //require models
 const { User } = require('../Models')
+// const { User } = require('../Models')
 
 const userController = {
     //get all users
