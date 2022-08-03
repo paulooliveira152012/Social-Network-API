@@ -23,3 +23,18 @@ QUESTIONS
     What to put inside here?
 
 * Models/Reaction.js -> Schema Settings
+
+
+
+
+======================================================
+controllers: 
+    contain routing configurations
+======================================================
+models:
+    Models are the formatting of the tables. it includes the schema 
+    to set up the columns and their configurations.
+======================================================
+routes/api:
+    require routes from controllers and with the help of express-router
+    it sets up routes.
