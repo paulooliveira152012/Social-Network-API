@@ -17,26 +17,23 @@ const UserSchema = new Schema({
       type: String,
       required: true,
       unique: true,
+      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
       //insert an email validator 
-      email: {
-        type: String,
-        trim: true,
-        lowercase: true,
-        unique: true,
-        required: 'Email address is required',
-        validate: [validateEmail, 'Please fill a valid email address'],
-        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+    },
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Thought"
       }
-    },
-    thoughts: {
-        //Array of _id values referencing the Thought model
-        type: String,
-        required: true,
-        enum: ['thought']
-    },
-    friends: {
+    ],
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+      }
+    ],
         // Array of _id values referencing the User model (self-reference)
-    },
+
     createdAt: {
         type: Date,
         default: Date.now
@@ -50,6 +47,7 @@ const UserSchema = new Schema({
         0
     );
   });
+
 
   const User = model('User', UserSchema);
   

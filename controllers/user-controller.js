@@ -9,10 +9,6 @@ const userController = {
     //get all users
     getAllUsers(req, res) {
         User.find({})
-        .populate({
-            path: 'thoughts',
-            select: '-__v'
-        })
         .select('-__v')
         .sort({ _id: -1 })
         .then(dbUserData => res.json(dbUserData))
@@ -25,10 +21,6 @@ const userController = {
     //get one user
     getUserByID({ params }, res) {
         User.findOne({_id: params.id })
-        .populate({
-            path: 'reactions',
-            select: '-__v'
-        })
         .select('-__v')
         .then(dbUserData => {
             if (!dbUserData) {
