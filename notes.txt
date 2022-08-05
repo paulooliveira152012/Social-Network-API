@@ -38,3 +38,32 @@ models:
 routes/api:
     require routes from controllers and with the help of express-router
     it sets up routes.
+
+
+
+
+
+
+
+    To review, these are the steps I would take moving forward:
+1. Ensure you are exporting and importing properly along with ensuring capitalization and syntax errors are checked for.
+2. Would recommend ensuring you are using (req,res) as your error was related to req not being defined.
+3. When using your arrow functions, ensure you are returning at the end.
+4. I am providing you with an example below. You can use it as reference.Please take some time to troubleshoot and test on your end. Should you have any questions or hit roadblocks after working on this on your own for some time, please feel free to reach back out to AskBCS.
+ removeReaction(req, res) {
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $pull: { reactions: { reactionId: req.params.reactionId } } },
+      { runValidators: true, new: true }
+    )
+      .then((dbThoughtData) => {
+        if (!dbThoughtData) {
+          return res.status(404).json({ message: 'No thought with this id!' });
+        }
+        res.json(dbThoughtData);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  },
